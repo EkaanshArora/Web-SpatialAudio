@@ -1,0 +1,18 @@
+{
+  "name": "agora-spatial-audio",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.4",
+    "vite": "^2.9.9"
+  },
+  "dependencies": {
+    "agora-rtc-sdk-ng": "^4.11.1",
+    "agora-rtm-sdk": "^1.4.5"
+  }
+}

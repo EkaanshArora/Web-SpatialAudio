@@ -1,0 +1,45 @@
+* {
+  font-family: sans-serif;
+}
+
+body * { display: flex; } 
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+
+
+h1,
+h4,
+p {
+  text-align: center;
+}
+
+button {
+  display: block;
+  margin: 5px auto;
+}
+
+#remote-container video {
+  height: auto;
+  position: relative !important;
+}
+
+#me {
+  position: relative;
+  width: 50%;
+  margin: 0 auto;
+  display: block;
+}
+
+#me video {
+  position: relative !important;
+}
+
+#remote-container {
+  display: flex;
+}
