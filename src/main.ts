@@ -1,4 +1,6 @@
-export let appId = '<Agora App ID>';
+export let appId = '<Agora App ID>'; // enter your agora app ID
+let token: string | null = null; // enter your channel token if using secured mode
+let channelId = 'test';
 
 import "./style.css";
 import AgoraRTC, { IAgoraRTCRemoteUser } from 'agora-rtc-sdk-ng';
@@ -6,8 +8,6 @@ import { addAudioToDom, initStop, moveUser, userState, calcDistance } from './ut
 import AgoraRTM, { RtmTextMessage } from 'agora-rtm-sdk';
 import { position } from './utils';
 
-let channelId = 'test';
-let token: string | null = null;
 let loggedIn = false
 
 // Setup
