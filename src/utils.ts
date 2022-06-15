@@ -1,5 +1,4 @@
-import { IAgoraRTCClient, IAgoraRTCRemoteUser, ILocalAudioTrack } from "agora-rtc-sdk-ng";
-import { RtmChannel, RtmClient } from "agora-rtm-sdk";
+import { IAgoraRTCRemoteUser } from "agora-rtc-sdk-ng";
 
 // utils
 const addAudioToDom = (id: string) => {
@@ -7,31 +6,6 @@ const addAudioToDom = (id: string) => {
   audioTag.id = id;
   (document.getElementById('audio-container') as HTMLElement).appendChild(audioTag)
   return audioTag
-}
-
-const initStop = (client: IAgoraRTCClient, rtmClient: RtmClient, rtmChannel: RtmChannel, localAudioTrack: ILocalAudioTrack, locationIntervalId: number, remoteUsers: {[uid: number]: userState}) => {
-  const stopBtn = (<HTMLInputElement>document.getElementById('stop'));
-  const startBtn = (<HTMLInputElement>document.getElementById('start'));
-  stopBtn.disabled = false; 
-  stopBtn.onclick = null; 
-  stopBtn.onclick = async () => {
-    for (let key in remoteUsers) {
-      delete remoteUsers[key]
-    }
-    console.log('remoteUsers', remoteUsers);
-    clearInterval(locationIntervalId);  
-    await client.unpublish(); 
-    await client.leave();
-    rtmChannel.removeAllListeners();
-    rtmClient.removeAllListeners();
-    await rtmChannel.leave()
-    await rtmClient.logout()
-    localAudioTrack.stop();  
-    localAudioTrack.close(); 
-    client.removeAllListeners(); 
-    stopBtn.disabled = true;
-    startBtn.disabled = false;
-  }
 }
 
 const speed = 10
@@ -83,4 +57,4 @@ export type userState = {
   color: string,
 }
 
-export {addAudioToDom, initStop, moveUser, calcDistance}
+export {addAudioToDom, moveUser, calcDistance}
